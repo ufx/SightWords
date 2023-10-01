@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Sight Words</title>
+
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" sizes="128x128" href="icon.png">
+	<link rel="apple-touch-icon" sizes="512x512" href="icon.png">
+
+	<!-- External libs -->
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+	<script src="ext/doT.min.js"></script>
+	<script src="ext/origami.min.js"></script>
+	<script src="ext/BitArray.js"></script>
+
+	<!-- App libs -->
+	<script src="js/sight.js"></script>
+	<script src="js/sight.lesson.js"></script>
+	<script src="js/sight.data.js"></script>
+
+	<script>
+		$(sight.initialize);
+	</script>
+
+	<script id="profiles-template" type="text/x-dot-template">
+		<div class="profile">{{=it}}</div>
+	</script>
+
+	<script id="subjects-template" type="text/x-dot-template">
+		<div class="subject">{{=it}}</div>
+	</script>
+
+	<script id="lesson-header-template" type="text/x-dot-template">
+		<div class="set-progress">{{=it.lesson}} {{=it.number}} / {{=it.max}} ({{=it.learned}}%)</div>
+	</script>
+
+	<script id="memorize-template" type="text/x-dot-template">
+		<div class="question-wrapper">
+			<div class="question-container entry-animated">
+				<span class="question">{{=it.entry}}</span>
+			</div>
+		</div>
+	</script>
+</head>
+<body>
+	<div id="lesson-container">
+		<div id="header"></div>
+		<div id="content"></div>
+		<div id="answer">
+			<span class="button" id="perfect"></span>
+		</div>
+	</div>
+
+	<div id="menu-container">
+		<div id="profiles-container">
+			<h2>Profiles</h2>
+			<div id="profiles"></div>
+		</div>
+
+		<div id="subjects-container">
+			<h2>Subjects</h2>
+			<div id="subjects"></div>
+		</div>
+
+		<div id="settings-container">
+			<h2>Settings</h2>
+		</div>
+	</div>
+</body>

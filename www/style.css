@@ -1,0 +1,133 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	vertical-align: top;
+	overflow-x: hidden;
+	overflow-y: hidden;
+
+	background-color: #f7f7f7;
+	text-shadow: 1px 1px 0px #eee;	
+	color: #111;
+	font-size: 12px;
+	font-family: Verdana, Arial, sans-serif;
+	-webkit-text-size-adjust: 100%;
+
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	cursor: default;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Utility */
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+.deemphasize {
+	color: #999999;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+/* Animations */
+
+@keyframes anim-in {
+	0% { transform: scale(.5, .5); }
+	30% { transform: scale(1.13, 1.13); }
+	100% { transform: scale(1, 1); }
+}
+
+/* Questions */
+
+.question-wrapper {
+	position: absolute;
+	top: 40%;
+	width: 90%;
+	left: 5%;
+	transform: translateY(-50%);
+	text-align: center;
+}
+
+.question-container {
+	width: 100%;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.question-container.in {
+	animation: anim-in 1s;
+	-webkit-animation: anim-in 1s;
+}
+
+/* Header */
+
+#header {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	padding: 15px;
+	z-index: 10;
+}
+
+/* Answers */
+
+#answer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	text-shadow: 0;
+	border-top: 1px solid #777;
+	cursor: pointer;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background-color: #dfdfdf;
+
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
+#answer .button {
+	display: inline-block;
+	font-size: 36px;
+	text-shadow: 0 0 0;
+}
+
+#perfect.active {
+	color: #0000E5;
+}
+
+#perfect:after {
+	content: "☆";
+}
+
+#perfect.active:after {
+	content: "★";
+}
+
+/* Menu */
+
+#menu-container {
+	display: none;
+}
+
+/* Settings */
+
+#settings-data {
+	width: 90%;
+	height: 200px;
+}

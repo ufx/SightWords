@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Study Words Settings</title>
+
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" sizes="128x128" href="icon.png">
+	<link rel="apple-touch-icon" sizes="512x512" href="icon.png">
+
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+	<script src="ext/doT.min.js"></script>
+	<script src="ext/origami.min.js"></script>
+	<script src="js/sight.js"></script>
+	<script src="js/sight.data.js"></script>
+	<script src="js/sight.lesson.js"></script>
+
+	<script>
+		sight.settingsPage = {
+			initialize: function() {
+				sight.initializeCommon();
+
+				$('#settings-data').val(localStorage.sightSettings)
+				$('#settings-save').click(sight.settingsPage.save);
+				$('#settings-clear').click(sight.settingsPage.clear);
+			},
+
+			save: function(e) {
+				var newSettings = $('#settings-data').val();
+				// Sanity check it.
+				var newData = JSON.parse(newSettings);
+				if (!newData.words) {
+					alert('Invalid format.  Save failed.');
+					return;
+				}
+
+				sight.settings = newData;
+				sight.store.save();
+				
+				alert('data saved');
+			},
+
+			clear: function(e) {
+				localStorage.clear();
+				alert('data cleared');
+			}
+		};
+
+		$(sight.settingsPage.initialize);
+	</script>
+</head>
+<body>
+	<div id="content">
+		Settings
+		<br/>
+		<textarea id="settings-data"></textarea>
+		<br />
+		<br />
+		<input type="button" id="settings-save" value="Save Settings">
+		<input type="button" id="settings-clear" value="Clear Settings">
+	</div>
+</body>
